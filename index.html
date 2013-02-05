@@ -143,11 +143,11 @@
                             <li>Daten</li>
                             <li>Kommunikation</li>
                             <li>OAuth</li>
-                            <li>Die eigene</li>
+                            <li>Die eigene API</li>
                             <li>Twitter</li>
-                            <li>Amazon</li>
                             <li>Facebook</li>
                             <li>GoogleMaps</li>
+                            <li>OpenStreetMap</li>
                             <li>Misc / Q&A</li>
                         </ol>
                     </section>
@@ -257,7 +257,6 @@
                             <h3 class="tagcloud">iOS</h3>
                             <h3 class="tagcloud">Linux</h3>
                             <h3 class="tagcloud">Google Services</h3>
-                            <h3 class="tagcloud"></h3>
                             <h3 class="tagcloud">Internet</h3>
                             <h3 class="tagcloud">...</h3>
                          </div>
@@ -323,26 +322,72 @@
                     </section>
                     <section>
                         <h2>Text</h2>
-                        <p>
-                            Text
-                        </p>
+                        <p>Einfachstes Format</p>
+                        <p>Quasi schon antik ;)</p>
+                        <p>Strukturierung schwierig => CSV</p>
+                        <p>Kaum overhead</p>
+                        <p>Encoding</p>
                     </section>
                     <section>
                         <h2>XML</h2>
-                        <p>
-                            XML
-                        </p>
+                        <p>Strukturierter Text</p>
+                        <p>Viel overhead</p>
+                        <p>Eigene Tags möglich</p>
+                        <p>Muss bestimmten Regeln entsprechen</p>
+                        <p>Lange Zeite der quasi Standard</p>
                     </section>
                     <section>
-                        <h2> JSON</h2>
-                        <p>
-                            JSON
-                        </p>
+                        <h2>XML - Beispiel</h2>
+                        <pre><code class="xml">
+&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;verzeichnis&gt;
+     &lt;titel&gt;Wikipedia Städteverzeichnis&lt;/titel&gt;
+     &lt;eintrag&gt;
+          &lt;stichwort&gt;Genf&lt;/stichwort&gt;
+          &lt;eintragstext&gt;Genf ist der Sitz von ...&lt;/eintragstext&gt;
+     &lt;/eintrag&gt;
+     &lt;eintrag&gt;
+          &lt;stichwort&gt;Köln&lt;/stichwort&gt;
+          &lt;eintragstext&gt;Köln ist eine Stadt, die ...&lt;/eintragstext&gt;
+     &lt;/eintrag&gt;
+&lt;/verzeichnis&gt;
+                        </code></pre>
                     </section>
+
+
+                    <section>
+                        <h2>JSON</h2>
+                        <p>Javascript Object Notation</p>
+                        <p>Kurzschreibweise für Javascript Objekte</p>
+                        <p>Sehr einfach</p>
+                        <p>Kaum overhead</p>
+                        <p>Native Unterstützung in vielen Programmiersprachen</p>
+                    </section>
+                    <section>
+                        <h2>JSON - Beispiel</h2>
+                        <pre><code class="javascript">
+{
+    "titel": "Wikipedia Städteverzeichnis",
+    "eintrag": [
+        {
+            "stichwort": "Genf",
+            "eintragstext": "Genf ist der Sitz von ..."
+        },
+        {
+            "stichwort": "Köln",
+            "eintragstext": "Köln ist eine Stadt, die ..."
+        }
+    ]
+}
+                        </code></pre>
+                    </section>
+
                     <section>
                         <h2>Und was ist jetzt das beste?</h2>
                         <div class="fragment">
                             <p>Es kommt darauf an... ;)</p>
+                            <p>Text bei einfachen Funktionalitäten</p>
+                            <p>JSON mittlerweile quasi Standard</p>
                         </div>
                     </section>
                 </section>
@@ -354,9 +399,11 @@
 
                     <section>
                         <h2>Warum braucht man ne Standard?</h2>
-                        <p>
-                            Warum braucht man ne Standard?
-                        </p>
+                        <div class="fragment">
+                            <h3>Versteht ein Norweger einen Griechen? ;)</h3>
+                            <p>Kommunikation unabhängig von der Programmiersprache soll ermöglicht werden</p>
+                        </div>
+
                     </section>
 
                     <section>
@@ -384,20 +431,143 @@
                     <section>
                         <h2>SOAP</h2>
                         <p>
-                            SOAP
+                            SOAP (ursprünglich für Simple Object Access Protocol) ist ein Netzwerkprotokoll,
+                            mit dessen Hilfe Daten zwischen Systemen ausgetauscht und Remote Procedure Calls durchgeführt werden können.
+                            SOAP stützt sich auf <strong>XML</strong> zur Repräsentation der Daten und auf Internet-Protokolle der Transport- und Anwendungsschicht (vgl. TCP/IP-Referenzmodell)
+                            zur Übertragung der Nachrichten. Die gängigste Kombination ist SOAP über <strong>HTTP</strong> und TCP.
                         </p>
+                        <p>
+                            Die Abkürzung SOAP wird offiziell seit Version 1.2 nicht mehr als Akronym gebraucht,
+                            da es erstens (subjektiv) keineswegs einfach (Simple) ist und zweitens nicht nur dem Zugriff auf Objekte (Object Access) dient.
+                        </p>
+                    </section>
+                    <section>
+                        <h2>SOAP</h2>
+                        <p>
+                            Meist entspricht ein Serviceendpunkt einer URI, die mehrere Services anbietet. Diese werden per WSDL bekannt gegeben.
+                        </p>
+                        <p>
+                            Die Web Services Description Language (WSDL) ist eine plattform-, programmiersprachen- und protokollunabhängige
+                            Beschreibungssprache für Netzwerkdienste (Webservices) zum Austausch von Nachrichten auf Basis von XML.
+                        </p>
+                    </section>
+                    <section>
+                        <h2>SOAP Nachricht</h2>
+                        <pre><code class="javascript">
+&lt;?xml version="1.0"?&gt;
+&lt;s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope"&gt;
+   &lt;s:Header&gt;
+       &lt;m:RequestID xmlns:m="http://www.lecture-db.de/soap"&gt;a3f5c109b&lt;/m:RequestID&gt;
+   &lt;/s:Header&gt; 
+   &lt;s:Body&gt;
+       &lt;m:DbResponse xmlns:m="http://www.lecture-db.de/soap"&gt;
+           &lt;m:title value="DOM, SAX und SOAP"&gt;
+               &lt;m:Choice value="1"&gt;Arbeitsbericht Informatik&lt;/m:Choice&gt;
+               &lt;m:Choice value="2"&gt;Seminar XML und Datenbanken&lt;/m:Choice&gt;
+           &lt;/m:title&gt;
+       &lt;/m:DbResponse&gt;
+   &lt;/s:Body&gt;
+&lt;/s:Envelope&gt;
+                        </code></pre>
                     </section>
                     <section>
                         <h2>REST</h2>
                         <p>
-                            REST
+                            Representational State Transfer (mit dem Akronym REST) bezeichnet ein Programmierparadigma für Webanwendungen.
+                            Es gibt keine explizite Norm, daher gehen die Vorstellungen, was REST ist, auseinander. I
+                            m Grunde bezeichnet REST die Idee, dass eine URL genau einen Seiteninhalt als Ergebnis einer serverseitigen Aktion
+                            (etwa das Anzeigen einer Trefferliste nach einer Suche) darstellt,
+                            wie es der Internetstandard HTTP für statische Inhalte (Permalink) bereits vorsieht, ein Ziel,
+                            das für dynamisch erzeugte Seiten mitunter jedoch zusätzlichen Aufwand erfordert.
                         </p>
                     </section>
                     <section>
-                        <h2> Und was jetzt benutzen?</h2>
+                        <h2>Prinzipien von REST</h2>
+                        <h3>Adressierbarkeit</h3>
                         <p>
-                            Und was jetzt benutzen?
+                            Jeder Dienst, den ein REST-konformer Server zur Verfügung stellt, hat eine eindeutige Adresse, den Uniform Resource Identifier (URI).
+                            Diese „Straße und Hausnummer im Netz“ durch einen URI stellt sicher, dass das Angebot eines Webservices auf einfache,
+                            standardisierte Art und Weise einer Vielzahl von Anwendungen (Clients) zur Verfügung steht.
+                            Eine konsistente Adressierbarkeit erleichtert es außerdem, einen Webservice als Teil eines Mashups weiterzuverwenden.
                         </p>
+                    </section>
+                    <section>
+                        <h3>Unterschiedliche Repräsentationen</h3>
+                        <p>
+                            Die unter einer Adresse zugänglichen Dienste können unterschiedliche Darstellungsformen (Repräsentationen) haben.
+                            Ein REST-konformer Server kann je nachdem, was die Anwendung anfordert,
+                            verschiedene Repräsentationen ausliefern (z. B. HTML, JSON oder XML).
+                            Damit kann der Standard-Webbrowser über die gleiche URI-Adresse sowohl den Dienst,
+                            als auch die Beschreibung oder Dokumentation abrufen. Es wird nicht der interne Datenbankeintrag ausgeliefert,
+                            sondern das je nach Anfrage evtl. in eine bestimmte Kodierung oder Sprachversion übertragene Dokument.
+                        </p>
+                    </section>
+                    <section>
+                        <h3>Zustandslosigkeit</h3>
+                        <p>
+                            REST setzt auf ein zustandsloses Client-Server-Protokoll.
+                            Dabei enthält jede HTTP-Botschaft alle Informationen, die notwendig sind, um die Nachricht zu verstehen.
+                            Deshalb muss weder der Server noch die Anwendung Zustandsinformationen zwischen zwei Nachrichten speichern.
+                            Eine derartig strikte Trennung der Zuständigkeiten zwischen Client und Server führt dazu,
+                            dass ein REST-konformer Webservice als zustandslos (stateless) bezeichnet werden kann:
+                            Jede Anfrage eines Clients an den Server ist in dem Sinne in sich geschlossen,
+                            als dass sie sämtliche Informationen über den Anwendungszustand beinhaltet,
+                            die vom Server für die Verarbeitung der Anfrage benötigt werden.
+                        </p>
+                    </section>
+                    <section>
+                        <p>
+                            Zustandslosigkeit in der hier beschriebenen Form wirkt sich begünstigend auf die Skalierbarkeit eines Webservices aus.
+                            Beispielsweise können eingehende Anfragen im Zuge der Lastverteilung unkompliziert auf
+                            beliebige Maschinen verteilt werden: Da jeder Request in sich geschlossen ist und
+                            Anwendungsinformationen somit ausschließlich auf der Seite des Clients vorgehalten werden,
+                            ist auf der Seite des Servers keine Sitzungsverwaltung erforderlich.
+                            In der Praxis nutzen jedoch viele HTTP-basierte Anwendungen Cookies und andere Techniken, um Zustandsinformationen zu behalten.
+                        </p>
+                    </section>
+                    <section>
+                        <h3>Verwendung von Hypermedia</h3>
+                        <p>
+                            Sowohl für Anwendungsinformationen als auch für Zustandsveränderungen werden Hypermedia benutzt:
+                            Repräsentationen in einem REST-System sind typischerweise im HTML- oder XML-Format,
+                            welche sowohl Informationen als auch Links zu anderen Ressourcen enthalten. Deshalb ist es oftmals möglich,
+                            von einer Ressource zu einer anderen zu navigieren, indem man einfach Verknüpfungen folgt,
+                            ohne dass dafür Registrierungsdatenbanken oder ähnliche Infrastrukturen erforderlich sind.
+                            Diese Verknüpfung von Ressourcen innerhalb einer REST-Architektur wird auch als Verbindungshaftigkeit bezeichnet.
+                        </p>
+                    </section>
+                    <section>
+                        <h3>Operationen</h3>
+                        <p>
+                            REST-konforme Dienste müssen einige Operationen vorsehen, die auf alle Dienste (Ressourcen genannt) angewendet werden können.
+                            HTTP, zum Beispiel, hat eine klar definierte Menge von Operationen, darunter GET, POST, PUT und DELETE.
+                        </p>
+                        <p>
+                            HTTP schreibt vor, dass GET „sicher“ (englisch safe) sein muss,
+                            was bedeutet, dass diese Methode nur Informationen beschafft und keine sonstigen Effekte verursacht.
+                            Die Methoden GET, HEAD, PUT und DELETE müssen laut HTTP-Spezifikation idempotent sein,
+                            was in diesem Zusammenhang bedeutet,
+                            dass das mehrfache Absenden der gleichen Anforderung sich nicht anders auswirkt als ein einzelner Aufruf.
+                        </p>
+                    </section>
+                    <section>
+                        <h2>HTTP / REST Operationen</h2>
+                        <p><strong>GET:</strong> fordert die angegebene Ressource vom Server an.</p>
+                        <p><strong>POST:</strong> fügt eine neue (Sub-)Ressource unterhalb der angegebenen Ressource ein. Da die neue Ressource noch keine URI besitzt, adressiert den URI die übergeordnete Ressource. Als Ergebnis wird der neue Ressourcenlink dem Client zurückgegeben. POST kann im weiteren Sinne auch dazu verwendet werden Operationen abzubilden, die von keiner anderen Methode abgedeckt werden.</p>
+                        <p><strong>PUT:</strong> die angegebene Ressource wird angelegt oder dazu geändert. Üblicherweise ohne Seiteneffekte.</p>
+                        <p><strong>DELETE:</strong> löscht die angegebene Ressource.</p>
+                    </section>
+                    <section>
+                        <p><strong>HEAD:</strong> fordert Metadaten zu einer Ressource vom Server an.</p>
+                        <p><strong>OPTIONS:</strong> prüft, welche Methoden auf einer Ressource zur Verfügung stehen.</p>
+                        <p><strong>PATCH:</strong> ein Teil der angegeben Ressource wird geändert, Seiteneffekte erlaubt.</p>
+                    </section>
+                    <section>
+                        <h2> Und was jetzt benutzen?</h2>
+                        <div class="fragment">
+                            <h1>REST</h1>
+                            <h3>So funktioniert das Internet</h3>
+                        </div>
                     </section>
                 </section>
 
@@ -407,16 +577,84 @@
                     </section>
 
                     <section>
-                        <h2> Was ist OAuth?</h2>
+                        <h2>Was ist OAuth?</h2>
                         <p>
-                            Was ist ne OAuth?
+                            OAuth ist ein offenes Protokoll, das eine standardisierte,
+                            sichere API-Autorisierung für Desktop-, Web- und Mobile-Applikationen erlaubt.
+                            Es wurde von Blaine Cook und Chris Messina initiiert.
+                        </p>
+                        <p>
+                            Ein Endbenutzer (User) kann mit Hilfe dieses Protokolls einer Anwendung (Consumer) den Zugriff auf seine Daten erlauben
+                            (Autorisierung), die von einer anderen Anwendung (Service) verwaltet werden,
+                            ohne alle Details seiner Zugangsberechtigung zur anderen Anwendung (Authentifizierung) preiszugeben.
+                            Der Endbenutzer kann so Dritte damit beauftragen und dazu autorisieren,
+                            sich von ihnen den Gebrauchswert von Anwendungen erhöhen zu lassen.
+                            Typischerweise wird dabei die Übermittlung von Passwörtern an Dritte vermieden.
                         </p>
                     </section>
                     <section>
-                        <h2> Wie funktioniert OAuth?</h2>
-                        <p>
-                            Wie funktioniert OAuth?
-                        </p>
+                        <h2>Begriffe</h2>
+                        <div>
+                            <h3>Service Provider</h3>
+                            <p>
+                                (deutsch: „Dienstanbieter“) ist eine Website oder ein Web Service, bei dem die Informationen liegen,
+                                auf die ein kontrollierter Zugriff erlaubt werden soll.
+                                Er hat die volle Kontrolle und Verantwortung für die Implementierung von OAuth.
+                                Der Service Provider muss kein Identity Provider (Anbieter für ein zentrales Identititätsmanagement; zum Beispiel OpenID) sein.
+                            </p>
+                        </div>
+                        <div class="fragment">
+                            <h3>User</h3>
+                            <p>
+                                (deutsch: „Benutzer“) ist der Eigentümer der Informationen.
+                                Ihm soll mit OAuth die Kontrolle über seine Informationen ermöglicht werden.
+                                OAuth ist so konzipiert, dass nur die manuelle Freigabe des Users den Zugriff auf seine Daten ermöglicht.
+                            </p>
+                        </div>
+                    </section>
+                    <section>
+                        <div>
+                            <h3>Consumer</h3>
+                            <p>
+                                (deutsch: „Nachfrager“ oder „Konsument“) ist eine Applikation, die Zugriff auf die Informationen eines Users erlangen möchte.
+                                Es kann eine Website, ein Desktopprogramm, eine Mobile-Applikation,
+                                eine Set-Top-Box und so weiter sein, die in jedem Fall Zugang zum Internet haben muss.
+                                Ein Consumer Developer ist der Entwickler der Consumer-Applikation, die mit dem Service Provider interagiert.
+                            </p>
+                        </div>
+                        <div class="fragment">
+                            <h3>Protected Resources</h3>
+                            <p>
+                                (deutsch: „geschützte Ressourcen“) sind die Informationen des Users,
+                                auf die mit Hilfe von OAuth ein kontrollierter Zugriff erlaubt werden soll.
+                                Dabei kann es sich um Daten (Fotos, Dokumente, Adressen und so weiter),
+                                Aktivitäten (das Schreiben von Blogbeiträgen,
+                                der Transfer von Geld und so weiter) oder den geschützten Zugriff auf eine URL handeln.
+                            </p>
+                        </div>
+                    </section>
+                    <section>
+                        <div>
+                            <h3>Token</h3>
+                            <p>
+                                werden an Stelle von Benutzername-Passwort-Kombinationen verwendet, um auf Ressourcen zuzugreifen.
+                                Ein Token ist meist eine Zeichenkette aus Buchstaben und Zahlen; Sonderzeichen können auch verwendet werden.
+                                Um es vor Missbrauch zu schützen soll es schwer zu erraten und passend zu einer Sicherheitsabfrage sein.
+                                OAuth unterscheidet zwischen Abfrage-Token und Zugangs-Token.
+                            </p>
+                        </div>
+                    </section>
+                    <section>
+                        <h2>Wie funktioniert OAuth?</h2>
+                        <img src="images/oauth.png" />
+                    </section>
+                    <section>
+                        <h2>OAuth 2.0</h2>
+                        <p>Einfacher</p>
+                        <p>Mehrere Workflows (Javascript Application)</p>
+                        <p>SSL</p>
+                        <p>Regenerate Token</p>
+                        <p>Aber noch in der Entwicklung</p>
                     </section>
                 </section>
 
@@ -426,10 +664,11 @@
                     </section>
 
                     <section>
-                        <h2> Wann / Warum?</h2>
-                        <p>
-                          Wann / Warum
-                        </p>
+                        <h2>Wann / Warum?</h2>
+                        <div class="fragment">
+                            <p>Eigenes Framework</p>
+                            <p>Schnittstelle nach aussen</p>
+                        </div>
                     </section>
                     <section>
                         <h2>Eine gute API</h2>
@@ -458,19 +697,19 @@
 
                 <section>
                     <section>
-                        <h1>7. Amazon</h1>
+                        <h1>7. Facebook</h1>
                     </section>
                 </section>
 
                 <section>
                     <section>
-                        <h1>8. Facebook</h1>
+                        <h1>8. GoogleMaps</h1>
                     </section>
                 </section>
 
                 <section>
                     <section>
-                        <h1>9. GoogleMaps</h1>
+                        <h1>9. OpenStreetMap</h1>
                     </section>
                 </section>
 
@@ -480,8 +719,10 @@
                     </section>
 
                     <section>
-                        <h2>Links</h2>
-                        <p>tbd</p>
+                        <h2>Further Info</h2>
+                        <p>Google</p>
+                        <p>Wikipedia</p>
+                        <p>Developer Resources Twitter / FB / ...</p>
                     </section>
 
 
