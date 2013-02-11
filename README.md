@@ -1,2 +1,2 @@
-# Presentation for SAE datasecurity class made with reveal.js
+# Presentation for SAE API class made with reveal.js
 
