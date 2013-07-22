@@ -60,7 +60,10 @@
                         <p>
                             Bjoern Zapadlo<br />
                             Konstanz<br />
-                            33 Jahre
+                            <span id="age"></span> Jahre
+                            <script>
+                                document.getElementById("age").innerHTML = Math.round((new Date() - new Date(1979, 6, 14)) / (1000*60*60*24*365))
+                            </script>
                         </p>
                         <p>
                             Teamlead / Senior Software Developer HolidayCheck AG
@@ -399,7 +402,7 @@
                     </section>
 
                     <section>
-                        <h2>Warum braucht man ne Standard?</h2>
+                        <h2>Warum braucht man einen Standard?</h2>
                         <div class="fragment">
                             <h3>Versteht ein Norweger einen Griechen? ;)</h3>
                             <p>Kommunikation unabhängig von der Programmiersprache soll ermöglicht werden</p>
@@ -724,7 +727,7 @@
 
                 <section>
                     <section>
-                        <h1>9. OpenStreetMap</h1>
+                        <h1>9. OSM (OpenStreetMap)</h1>
                     </section>
                 </section>
 
@@ -774,10 +777,12 @@
 			// Full list of configuration options available here:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
+                        width: 1400,
+                        height: 800,
+                        controls: true,
+                        progress: true,
+                        history: true,
+                        center: false,
 
 				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
 				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
@@ -792,27 +797,8 @@
 					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
                     { src: '/socket.io/socket.io.js', async: true },
                     { src: 'plugin/notes-server/client.js', async: true }
-					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
 				]
 			});
-
-            Reveal.addEventListener( 'dollar', function() {
-                document.getElementsByTagName("body")[0].style.backgroundImage = "url(images/dollar.jpg)";
-
-            }, false );
-
-            Reveal.addEventListener( 'brain', function() {
-                document.getElementsByTagName("body")[0].style.backgroundImage = "url(images/brain.jpg)";
-                document.getElementsByTagName("body")[0].style.backgroundRepeat = "no-repeat";
-                document.getElementsByTagName("body")[0].style.backgroundPosition = "center center";
-                document.getElementsByTagName("body")[0].setAttribute("class", "black");
-
-            }, false );
-
-            Reveal.addEventListener( 'reset', function( event ) {
-                document.getElementsByTagName("body")[0].style.backgroundImage = "";
-                document.getElementsByTagName("body")[0].setAttribute("class", "");
-            } );
         </script>
 
 	</body>
