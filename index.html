@@ -21,11 +21,22 @@
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
-		<script>
-			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' )
-                    + '.css" type="text/css" media="print">' );
-		</script>
+        <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+        <script>
+            if( window.location.search.match( /print-pdf/gi ) ) {
+                var link = document.createElement( 'link' );
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = 'css/print/pdf.css';
+                document.getElementsByTagName( 'head' )[0].appendChild( link );
+
+                var link = document.createElement( 'link' );
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = 'css/pdf_custom.css';
+                document.getElementsByTagName( 'head' )[0].appendChild( link );
+            }
+        </script>
 
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
@@ -66,7 +77,7 @@
                             </script>
                         </p>
                         <p>
-                            Teamlead / Senior Software Developer HolidayCheck AG
+                            Development Manager / Consultant @ HolidayCheck AG
                         </p>
                         <p>
                             Informatik Studium 1999 - 2002<br />
@@ -159,7 +170,7 @@
 
                 <section>
                     <section>
-                        <h1>1. Definitionen</h1>
+                        <h1>Definitionen</h1>
                     </section>
 
                     <section>
@@ -310,7 +321,7 @@
 
                 <section>
                     <section>
-                        <h1>2. Daten</h1>
+                        <h1>Daten</h1>
                     </section>
 
                     <section>
@@ -398,7 +409,7 @@
 
                 <section>
                     <section>
-                        <h1>3. Kommunikation</h1>
+                        <h1>Kommunikation</h1>
                     </section>
 
                     <section>
@@ -577,7 +588,7 @@
 
                 <section>
                     <section>
-                        <h1>4. OAuth</h1>
+                        <h1>OAuth</h1>
                     </section>
 
                     <section>
@@ -664,7 +675,7 @@
 
                 <section>
                     <section>
-                        <h1>5. Die eigene API</h1>
+                        <h1>Die eigene API</h1>
                     </section>
 
                     <section>
@@ -695,7 +706,7 @@
 
                 <section>
                     <section>
-                        <h1>6. Twitter</h1>
+                        <h1>Twitter</h1>
                     </section>
                     <section>
                         <p>
@@ -709,7 +720,7 @@
 
                 <section>
                     <section>
-                        <h1>7. Facebook</h1>
+                        <h1>Facebook</h1>
                     </section>
                     <section>
                         <a href="https://developers.facebook.com/" target="_blank">Facebook Dev</a>
@@ -718,7 +729,7 @@
 
                 <section>
                     <section>
-                        <h1>8. GoogleMaps</h1>
+                        <h1>GoogleMaps</h1>
                     </section>
                     <section>
                         <a href="https://developers.google.com/maps/" target="_blank">Google Maps API</a>
@@ -727,13 +738,13 @@
 
                 <section>
                     <section>
-                        <h1>9. OSM (OpenStreetMap)</h1>
+                        <h1>OSM (OpenStreetMap)</h1>
                     </section>
                 </section>
 
                 <section>
                     <section>
-                        <h1>10. Amazon</h1>
+                        <h1>Amazon</h1>
                     </section>
                     <section>
                         <a href="https://affiliate-program.amazon.com/gp/advertising/api/detail/main.html" target="_blank">Affiliate API</a>
@@ -742,7 +753,7 @@
 
                 <section>
                     <section>
-                        <h1>11. Misc / Q&A</h1>
+                        <h1>Misc / Q&A</h1>
                     </section>
 
                     <section>
