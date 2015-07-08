@@ -14,9 +14,9 @@ Ein Klick auf den jeweiligen Marker in der Karte zeigt euch, was wo ist... ;-)
 
 <br /><br />
 
-<!-- Karte integrieren sowie Breite und Höhe festlegen -->
+<!-- Karte integrieren sowie Breite und Hï¿½he festlegen -->
 <div id="map" style="width: 950px; height: 600px"></div> <!-- Falls im Browser kein Javascript aktiviert ist wird diese Meldung ausgegeben -->
-<noscript>Du mußt in deinem Browser JavaScript aktivieren um Google Maps zu verwenden</noscript>
+<noscript>Du muï¿½t in deinem Browser JavaScript aktivieren um Google Maps zu verwenden</noscript>
 <script type="text/javascript">
 //<![CDATA[
 
@@ -39,50 +39,50 @@ window.onload = function() {
 		map: map,
 		icon: 'zielflagge.png'
 	});
-	
+
 	infowindow1 = new google.maps.InfoWindow({
-		content: '<strong>Burzeltag-Location / Müller\'sche Grillwiese</strong>'
+		content: '<strong>Burzeltag-Location / Mï¿½ller\'sche Grillwiese</strong>'
 	});
-	
+
 	google.maps.event.addListener(icon1, 'click', function() {
 		infowindow1.open(map, icon1);
 	});
-	
+
 	var icon2 = new google.maps.Marker({
 		position: new google.maps.LatLng(48.739354, 9.126380),
 		map: map,
 		icon: 'parkplatz.png'
 	});
-	
+
 	infowindow2 = new google.maps.InfoWindow({
 		content: '<strong>Hochfirststr. 1A</strong><br /> In der Hochfirststr. oder der Schliffkopfstr. parken <br />und dann links neben der Nr. 1A dem kleinen Weg und den Luftpallons folgen.'
 	});
-	
+
 	google.maps.event.addListener(icon2, 'click', function() {
 		infowindow2.open(map, icon2);
 	});
-	
+
 	var icon3 = new google.maps.Marker({
 		position: new google.maps.LatLng(48.738264, 9.115766),
 		map: map,
 		icon: 's-bahn.png'
 	});
-	
+
 	infowindow3 = new google.maps.InfoWindow({
-		content: '<strong>S-Bahn Station Österfeld</strong><br />Bis zur Schule durchkämpfen und von dort den Luftballons folgen.'
+		content: '<strong>S-Bahn Station ï¿½sterfeld</strong><br />Bis zur Schule durchkï¿½mpfen und von dort den Luftballons folgen.'
 	});
-	
+
 	google.maps.event.addListener(icon3, 'click', function() {
 		infowindow3.open(map, icon3);
 	});
-	
+
 	// polylines
 	new google.maps.Polyline({
 		path:
 			[
-				new google.maps.LatLng(48.739354, 9.126380), 
+				new google.maps.LatLng(48.739354, 9.126380),
 				new google.maps.LatLng(48.739227, 9.126458),
-				new google.maps.LatLng(48.738562, 9.125819), 
+				new google.maps.LatLng(48.738562, 9.125819),
 				new google.maps.LatLng(48.738733, 9.125276),
 				new google.maps.LatLng(48.738943, 9.125010),
 				new google.maps.LatLng(48.738862, 9.124815),
